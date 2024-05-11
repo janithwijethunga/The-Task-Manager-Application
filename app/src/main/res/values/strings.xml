@@ -4,6 +4,6 @@
     <string name="add_task">Add Task</string>
     <string name="enter_the_title">Enter The Title</string>
     <string name="enter_the_description">Enter the description</string>
-    <string name="Title">title</string>
-    <string name="Description">description</string>
+    <string name="Title">Title</string>
+    <string name="Description">Description</string>
 </resources>
