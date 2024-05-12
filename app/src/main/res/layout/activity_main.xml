@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@mipmap/bg4">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -43,8 +44,7 @@
             android:layout_marginBottom="16dp"
             android:backgroundTint="@color/blue"
             android:contentDescription="@string/task_manager"
-            android:src="@drawable/baseline_add_24"
-            android:tint="@color/white" />
+            android:src="@drawable/baseline_add_24" />
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
