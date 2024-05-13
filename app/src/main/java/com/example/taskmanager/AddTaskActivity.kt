@@ -26,7 +26,7 @@ class AddTaskActivity : AppCompatActivity() {
             val task = Task(0, title, content)
             db.insertTask(task)
             finish()
-            Toast.makeText(this, "Task Added", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Task Added", Toast.LENGTH_SHORT).show()
         }
         }
     }

@@ -3,14 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:backgroundTint="#FFFFFF"
+    android:backgroundTint="#D1CADC"
     app:cardCornerRadius="8dp"
     app:cardElevation="4dp"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="111dp"
+        android:background="@drawable/bgg1"
         android:orientation="vertical"
         android:padding="16dp">
 
@@ -25,22 +26,22 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/andika_new_basic"
                 android:text="@string/title"
-                android:textColor="@color/blue"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/updateButton"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="30dp"
+                android:layout_marginEnd="50dp"
                 app:srcCompat="@drawable/baseline_edit_square_24" />
 
             <ImageView
                 android:id="@+id/deleteButton"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_alignParentEnd="true"
                 app:srcCompat="@drawable/baseline_delete_24" />
 

@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UpdateTaskActivity">
+    tools:context=".UpdateTaskActivity"
+    android:background="@drawable/bgg">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -19,14 +20,14 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/andika_new_basic"
             android:text="@string/update_task"
-            android:textColor="@color/blue"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:layout_marginHorizontal="15dp" />
 
         <ImageView
             android:id="@+id/UpdateSaveButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             app:srcCompat="@drawable/baseline_edit_square_24"
             android:layout_alignParentEnd="true"
             android:layout_alignTop="@+id/updateTaskHedding"
@@ -36,31 +37,37 @@
             android:id="@+id/TitleUpdateText"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:hint="@string/Title"
-            android:padding="12dp"
-            android:textSize="20sp"
             android:layout_below="@id/UpdateSaveButton"
-            android:background="@drawable/blueborder"
-            android:layout_marginTop="16dp"
-            android:maxLines="1"
-            android:fontFamily="@font/andika_new_basic"
             android:layout_marginHorizontal="15dp"
-            android:layout_marginBottom="15dp"/>
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/blueborder"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/andika_new_basic"
+            android:hint="@string/Title"
+            android:maxLines="1"
+            android:padding="12dp"
+            android:textColorHint="#8F8F8F"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
 
         <EditText
             android:id="@+id/ContentUpdateText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/Description"
-            android:gravity="top"
-            android:padding="12dp"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginBottom="15dp"
-            android:textSize="18sp"
-            android:background="@drawable/blueborder"
             android:layout_below="@+id/TitleUpdateText"
+            android:layout_marginHorizontal="15dp"
             android:layout_marginTop="12dp"
-            android:fontFamily="@font/andika_new_basic"/>
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/blueborder"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/andika_new_basic"
+            android:gravity="top"
+            android:hint="@string/Description"
+            android:padding="12dp"
+            android:textColorHint="#8F8F8F"
+            android:textSize="18sp"
+            android:textColor="@color/black"/>
 
     </RelativeLayout>
 
