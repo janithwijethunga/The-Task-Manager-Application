@@ -6,17 +6,18 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.taskmanager.databinding.ActivityUpdateTaskBinding
+import com.example.taskmanager.databinding.ActivityUpdateBinding
+
 
 class UpdateTaskActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityUpdateTaskBinding
+    private lateinit var binding: ActivityUpdateBinding
     private lateinit var db: TasksDatabaseHelper
     private var taskId:Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityUpdateTaskBinding.inflate(layoutInflater)
+        binding = ActivityUpdateBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         db =TasksDatabaseHelper(this)
