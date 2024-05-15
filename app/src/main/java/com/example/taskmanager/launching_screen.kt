@@ -11,15 +11,18 @@ import android.os.Handler
 class launching_screen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         enableEdgeToEdge()
+
+        // Set the layout for the launching screen
         setContentView(R.layout.activity_launching_screen)
 
-
+        // Delayed launch of the main activity
         Handler().postDelayed({
-            val intent = Intent(this@launching_screen,MainActivity::class.java)
+            val intent = Intent(this@launching_screen, MainActivity::class.java)
             startActivity(intent)
             finish()
-        },3500)
+        }, 3500)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

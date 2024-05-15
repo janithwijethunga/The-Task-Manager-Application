@@ -15,18 +15,31 @@ class AddTaskActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Set up view binding
         binding = ActivityAddTaskBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Initialize database helper
         db = TasksDatabaseHelper(this)
 
+        // Enable edge-to-edge display
+        enableEdgeToEdge()
+
+        //click listener for save button
         binding.SaveButton.setOnClickListener{
+            // Get task title and content from EditText fields
             val title = binding.TitleEditText.text.toString()
             val content = binding.ContentEditText.text.toString()
+
+            // Create a new Task object
             val task = Task(0, title, content)
+
+            // Insert task into the database
             db.insertTask(task)
+
             finish()
             Toast.makeText(this, "Task Added", Toast.LENGTH_SHORT).show()
         }
-        }
     }
+}

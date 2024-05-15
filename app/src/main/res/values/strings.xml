@@ -12,4 +12,5 @@
     <string name="update_task">Update Task</string>
     <string name="add_new_task">Add New Task</string>
     <string name="the_task_manager">The-Task-Manager</string>
+    <string name="click_here_to_add_a_new_task"><![CDATA[Click here to add a new Task ---->]]></string>
 </resources>
