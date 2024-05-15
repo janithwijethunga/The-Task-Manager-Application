@@ -28,7 +28,7 @@ class TasksAdapter(private var tasks: List<Task>, context: Context) : RecyclerVi
         return TaskViewHolder(view)
     }
 
-    // Returns the total number of tasks in the list
+
     override fun getItemCount(): Int = tasks.size
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
@@ -36,7 +36,7 @@ class TasksAdapter(private var tasks: List<Task>, context: Context) : RecyclerVi
         holder.titleTextView.text = task.title
         holder.contentTextView.text = task.content
 
-        // click listener for the update button
+
         holder.updateButton.setOnClickListener {
             val intent = Intent(holder.itemView.context, UpdateTaskActivity::class.java).apply {
                 putExtra("task_id", task.id)
@@ -44,7 +44,6 @@ class TasksAdapter(private var tasks: List<Task>, context: Context) : RecyclerVi
             holder.itemView.context.startActivity(intent)
         }
 
-        // click listener for the delete button
         holder.deleteButton.setOnClickListener {
             db.deleteTask(task.id)
             refreshData(db.getAllTasks())
@@ -52,7 +51,6 @@ class TasksAdapter(private var tasks: List<Task>, context: Context) : RecyclerVi
         }
     }
 
-    // Refreshes the task
     fun refreshData(newTasks: List<Task>) {
         tasks = newTasks
         notifyDataSetChanged()

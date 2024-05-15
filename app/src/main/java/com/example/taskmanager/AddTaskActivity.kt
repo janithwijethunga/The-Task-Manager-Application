@@ -32,10 +32,10 @@ class AddTaskActivity : AppCompatActivity() {
             val title = binding.TitleEditText.text.toString()
             val content = binding.ContentEditText.text.toString()
 
-            // Create a new Task object
+
             val task = Task(0, title, content)
 
-            // Insert task into the database
+
             db.insertTask(task)
 
             finish()

@@ -16,18 +16,15 @@ class UpdateTaskActivity : AppCompatActivity() {
         binding = ActivityUpdateBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Initialize the database helper object
         db = TasksDatabaseHelper(this)
 
         // Retrieve the task ID passed from the previous activity
         taskId = intent.getIntExtra("task_id", -1)
-        // If no task ID was passed, finish the activity
         if (taskId == -1) {
             finish()
             return
         }
 
-        // Retrieve the task details from the database using the task ID
         val task = db.getTaskByID(taskId)
         binding.TitleUpdateText.setText(task.title)
         binding.ContentUpdateText.setText(task.content)

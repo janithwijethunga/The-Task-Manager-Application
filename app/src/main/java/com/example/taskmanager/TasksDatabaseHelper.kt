@@ -9,12 +9,12 @@ class TasksDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
 
     // values for database properties
     companion object{
-        private const val DATABASE_NAME = "tasksapp.db" // Database file name
-        private const val DATABASE_VERSION = 1 // Database version for upgrades
-        private const val TABLE_NAME = "alltasks" // Table to store tasks
-        private const val COLUMN_ID = "id" // Column for task ID
-        private const val COLUMN_TITLE = "title" // Column for task title
-        private const val COLUMN_CONTENT = "content" // Column for task content
+        private const val DATABASE_NAME = "tasksapp.db"
+        private const val DATABASE_VERSION = 1
+        private const val TABLE_NAME = "alltasks"
+        private const val COLUMN_ID = "id"
+        private const val COLUMN_TITLE = "title"
+        private const val COLUMN_CONTENT = "content"
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
@@ -28,29 +28,27 @@ class TasksDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
         // drop the existing table
         val dropTableQuery = "DROP TABLE IF EXISTS $TABLE_NAME"
         db?.execSQL(dropTableQuery)
-        // Recreate the database with the new version
         onCreate(db)
     }
 
     // Inserts a new task into the database
     fun insertTask(task: Task){
-        val db = writableDatabase // Get the database with write permission
-        // Prepare the values to insert
+        val db = writableDatabase
         val values = ContentValues().apply{
             put(COLUMN_TITLE, task.title)
             put(COLUMN_CONTENT, task.content)
         }
         // Insert the values into the table
         db.insert(TABLE_NAME, null, values)
-        db.close() // Close the database connection
+        db.close()
     }
 
     // Retrieves all tasks from the database
     fun getAllTasks(): List<Task> {
-        val tasksList = mutableListOf<Task>() // List to hold tasks
-        val db = readableDatabase // Get the database with read permission
-        val query = "SELECT * FROM $TABLE_NAME" // SQL query to select all tasks
-        val cursor = db.rawQuery(query, null) // Execute the query
+        val tasksList = mutableListOf<Task>()
+        val db = readableDatabase
+        val query = "SELECT * FROM $TABLE_NAME"
+        val cursor = db.rawQuery(query, null)
 
         while(cursor.moveToNext()){
             // Extract task details from the current row
@@ -69,46 +67,40 @@ class TasksDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
 
     // Updates an existing task in the database
     fun updateTask(task:Task){
-        val db = writableDatabase // Get the database with write permission
-        // Prepare the new values for the task
+        val db = writableDatabase
         val values = ContentValues().apply{
             put(COLUMN_TITLE, task.title)
             put(COLUMN_CONTENT, task.content)
         }
 
-        // Define the condition for the update
         val whereClause = "$COLUMN_ID = ?"
         val whereArgs = arrayOf(task.id.toString())
         // Update the task in the database
         db.update(TABLE_NAME, values, whereClause, whereArgs)
-        db.close() // Close the database connection
+        db.close()
     }
 
     // Retrieves a single task by its ID
     fun getTaskByID(taskID: Int): Task {
-        val db = readableDatabase // Get the database with read permission
-        // SQL query to select the task with the specified ID
+        val db = readableDatabase
         val query = "SELECT * FROM $TABLE_NAME WHERE $COLUMN_ID = $taskID"
-        val cursor = db.rawQuery(query, null) // Execute the query
-        cursor.moveToFirst() // Move to the first row in the result set
+        val cursor = db.rawQuery(query, null)
+        cursor.moveToFirst()
 
-        // Extract task details from the current row
         val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
         val title = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE))
         val content = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CONTENT))
 
-        cursor.close() // Close the cursor
-        db.close() // Close the database connection
-        return Task(id, title, content) // Return the task
+        cursor.close()
+        db.close()
+        return Task(id, title, content)
     }
 
     // Deletes a task from the database
     fun deleteTask(taskId: Int){
-        val db = writableDatabase // Get the database with write permission
-        // Define the condition for the deletion
+        val db = writableDatabase
         val whereClause = "$COLUMN_ID = ?"
         val whereArgs = arrayOf(taskId.toString())
-        // Delete the task from the database
         db.delete(TABLE_NAME, whereClause, whereArgs)
         db.close() // Close the database connection
     }
